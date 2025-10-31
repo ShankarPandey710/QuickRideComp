@@ -1,0 +1,403 @@
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+html, body, #root {
+    height: 100%;
+    width: 100%;
+    background: #f4f4f4;
+    color: #000; 
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    align-items: center;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #4b83bf, #0056b3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  margin-left: 30px;
+  border: solid 2px aquamarine;
+}
+
+.title {
+  font-size: 35px;
+  font-weight: bold;
+  color: white;
+  margin: 5;
+  white-space: nowrap;
+  margin-left: 200px;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+header nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+header nav a:hover {
+  color: #ffcc00;
+}
+
+.login-btn {
+  background: #ffcc00;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  color: black;
+}
+
+.login-btn:hover {
+  background: #ffaa00;
+}
+
+.login-form {
+    margin-top: 10px;
+}
+
+.hero {
+    background: url('/map.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;  
+    justify-content: center; 
+    text-align: center;
+    height: 600px;
+
+}
+
+.overlay {
+
+    background: rgba(255, 255, 255, 0.85);
+    padding: 60px;
+    border-radius: 15px;
+    color: #000;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    margin: auto;
+}
+
+.search-box {
+    display: grid;
+    gap: 15px;
+    max-width: 500px;
+    margin-top: 20px;
+    margin-left: 25px;
+}
+
+.input-group input,
+.search-box select,
+.search-box button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background: white;
+    color: black;
+}
+
+.input-group input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.4);
+}
+
+.search-box button {
+    background: #ff9900;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(255, 153, 0, 0.4);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.search-box button:hover {
+    background: #e68a00;
+    transform: translateY(-2px);
+}
+
+.results {
+    margin-top: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease-out;
+    color: black; 
+}
+
+.ride-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    color: black;
+}
+
+.ride-card h3 {
+    font-size: 1.2em;
+    color: #0056b3;
+    margin-bottom: 5px;
+}
+
+.results .book-btn {
+  background: linear-gradient(90deg, #ff9800, #ff5722);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.results .book-btn:hover {
+  background: linear-gradient(90deg, #ff5722, #ff9800);
+  transform: scale(1.05);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.modal button {
+  margin-top: 10px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  background: #007bff;
+  color: white;
+  transition: 0.3s;
+}
+
+.modal button:hover {
+  background: #0056b3;
+}
+
+.close-btn {
+  background: #ff4d4d !important;
+  margin-top: 15px;
+}
+
+.close-btn:hover {
+  background: #cc0000 !important;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Add this to the end of src/App.css */
+
+/* Styling for the div that holds the welcome message and logout button */
+.account-info {
+  display: flex;
+  align-items: center;
+}
+
+/* Styling for the "Welcome, username" text */
+.user-welcome {
+  color: greenyellow;         /* A dark, professional blue color */
+  font-weight: 600;        /* Makes the font semi-bold */
+  margin-right: 15px;      /* Adds some space between the text and the logout button */
+  font-size: 1.2rem;         /* Sets a standard font size */
+}
+
+/* Optional: A little hover effect for the welcome text */
+.user-welcome:hover {
+  color: #e67e22;         /* Changes color to an orange on hover */
+  cursor: default;         /* Keeps the cursor as a pointer, not a text selector */
+}
+
+/* new something */
+
+/* --- Professional Login Modal Styles --- */
+
+/* 1. The Full-Screen Backdrop */
+/* This creates a semi-transparent dark background behind the modal. */
+.modal-backdrop {
+  position: fixed; /* Stays in place even if you scroll */
+  top: 0;
+  left: 0;
+  width: 100vw; /* 100% of the viewport width */
+  height: 100vh; /* 100% of the viewport height */
+  background-color: rgba(0, 0, 0, 0.75); /* Dark but see-through */
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+  z-index: 1000; /* Ensures it's on top of other content */
+  animation: fadeIn 0.3s ease-out; /* A subtle fade-in animation */
+}
+
+/* 2. The Modal Container (The "Card") */
+/* This is the white box that holds the login form. */
+.modal {
+  background-color: white;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px; /* Prevents it from being too wide on large screens */
+  position: relative; /* Needed for positioning the close button */
+  animation: scaleUp 0.3s ease-out; /* A subtle zoom-in animation */
+}
+
+/* 3. The Header (h2) */
+.modal h2 {
+  margin-top: 0;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+/* 4. The Form Elements */
+.modal form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 5. Input Fields (Email & Password) */
+.modal input {
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s; /* Smooth transition for focus */
+}
+
+/* Style for when an input field is focused (clicked on) */
+.modal input:focus {
+  outline: none; /* Removes the default browser outline */
+  border-color: #007bff; /* A nice blue color */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Adds a soft blue glow */
+}
+
+/* 6. Primary Login Button */
+.modal button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s;
+}
+
+.modal button[type="submit"]:hover {
+  background-color: #0056b3; /* A darker blue on hover */
+}
+
+/* 7. The Close Button */
+.close-btn {
+  position: absolute; /* Positions it relative to the .modal container */
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #aaa;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: #333; /* Darkens the 'X' on hover */
+}
+
+/* 8. Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+
+/* something new one  */
+
