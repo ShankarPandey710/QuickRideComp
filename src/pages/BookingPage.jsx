@@ -1,476 +1,152 @@
-// import { useLocation, useNavigate } from "react-router-dom";
-// import "./BookingPage.css";
-
-// export default function BookingPage() {
-//   const location = useLocation();
-//   const navigate = useNavigate();
-//   const ride = location.state?.rideData; 
-
-//   if (!ride) {
-//     return (
-//       <div className="booking-page">
-//         <h2>No ride selected</h2>
-//         <button onClick={() => navigate("/")}>Go Back</button>
-//       </div>
-//     );
-//   }
-
-//   return (
-//     <div className="booking-page">
-//       <h2>Booking Details</h2>
-
-//       <div className="ride-details">
-//         <h3>{ride.name}</h3>
-//         <p>
-//           <strong>Route:</strong> {ride.route || "Pickup → Drop"} <br />
-//           <strong>Fare:</strong> ₹{ride.fare} <br />
-//           <strong>ETA:</strong> {ride.eta} minutes <br />
-//           <strong>Capacity:</strong> {ride.capacity} persons
-//         </p>
-//       </div>
-
-//       <button
-//         className="confirm-btn"
-//         onClick={() => alert(`Your ${ride.name} ride is booked!`)}
-//       >
-//         Confirm Booking
-//       </button>
-
-//       <button className="back-btn" onClick={() => navigate(-1)}>
-//         ← Go Back
-//       </button>
-//     </div>
-//   );
-// }
-
-
-// import { useLocation, useNavigate } from "react-router-dom";
-// import "./BookingPage.css";
-
-// export default function BookingPage({ isLoggedIn, onLoginRequest }) {
-//   const location = useLocation();
-//   const navigate = useNavigate();
-//   const ride = location.state?.rideData; 
-
-//   // ✅ Check if user is logged in
-//   if (!isLoggedIn) {
-//     onLoginRequest();
-//     return (
-//       <div className="booking-page">
-//         <h2>Please login to book your ride 🚗</h2>
-//         <button onClick={() => navigate("/")}>Go Back</button>
-//       </div>
-//     );
-//   }
-
-//   if (!ride) {
-//     return (
-//       <div className="booking-page">
-//         <h2>No ride selected</h2>
-//         <button onClick={() => navigate("/")}>Go Back</button>
-//       </div>
-//     );
-//   }
-
-//   return (
-//     <div className="booking-page">
-//       <h2>Booking Details</h2>
-
-//       <div className="ride-details">
-//         <h3>{ride.name}</h3>
-//         <p>
-//           <strong>Route:</strong> {ride.route || "Pickup → Drop"} <br />
-//           <strong>Fare:</strong> ₹{ride.fare} <br />
-//           <strong>ETA:</strong> {ride.eta} minutes <br />
-//           <strong>Capacity:</strong> {ride.capacity} persons
-//         </p>
-//       </div>
-
-//       <button
-//         className="confirm-btn"
-//         onClick={() => alert(`Your ${ride.name} ride is booked!`)}
-//       >
-//         Confirm Booking
-//       </button>
-
-//       <button className="back-btn" onClick={() => navigate(-1)}>
-//         ← Go Back
-//       </button>
-//     </div>
-//   );
-// }
-
-
-
-// import { useLocation, useNavigate } from "react-router-dom";
-// import "./BookingPage.css";
-
-// export default function BookingPage({ isLoggedIn, onLoginRequest }) {
-//   const location = useLocation();
-//   const navigate = useNavigate();
-//   const ride = location.state?.rideData; 
-
-//   if (!isLoggedIn) {
-//     onLoginRequest(ride);
-//     return (
-//       <div className="booking-page">
-//         <h2>Please login to book your ride 🚗</h2>
-//         <button onClick={() => navigate("/")}>Go Back</button>
-//       </div>
-//     );
-//   }
-
-//   if (!ride) {
-//     return (
-//       <div className="booking-page">
-//         <h2>No ride selected</h2>
-//         <button onClick={() => navigate("/")}>Go Back</button>
-//       </div>
-//     );
-//   }
-
-//   return (
-//     <div className="booking-page">
-//       <h2>Booking Details</h2>
-
-//       <div className="ride-details">
-//         <h3>{ride.name}</h3>
-//         <p>
-//           <strong>Route:</strong> {ride.route || "Pickup → Drop"} <br />
-//           <strong>Fare:</strong> ₹{ride.fare} <br />
-//           <strong>ETA:</strong> {ride.eta} minutes <br />
-//           <strong>Capacity:</strong> {ride.capacity} persons
-//         </p>
-//       </div>
-
-//       <button
-//         className="confirm-btn"
-//         onClick={() => alert(`Your ${ride.name} ride is booked!`)}
-//       >
-//         Confirm Booking
-//       </button>
-
-//       <button className="back-btn" onClick={() => navigate(-1)}>
-//         ← Go Back
-//       </button>
-//     </div>
-//   );
-// }
-
-
-
-// import { useLocation, useNavigate } from "react-router-dom";
-// import "./BookingPage.css";
-
-// export default function BookingPage({ isLoggedIn, onLoginRequest }) {
-//   const location = useLocation();
-//   const navigate = useNavigate();
-//   const ride = location.state?.rideData; 
-
-//   if (!isLoggedIn) {
-//     onLoginRequest(ride);
-//     return (
-//       <div className="booking-page">
-//         <h2>Please login to book your ride 🚗</h2>
-//         <button onClick={() => navigate("/")}>Go Back</button>
-//       </div>
-//     );
-//   }
-
-//   if (!ride) {
-//     return (
-//       <div className="booking-page">
-//         <h2>No ride selected</h2>
-//         <button onClick={() => navigate("/")}>Go Back</button>
-//       </div>
-//     );
-//   }
-
-//   const handleConfirm = () => {
-//     // simulate rider contact
-//     const updatedRide = {
-//       ...ride,
-//       contact: "+91-9876543210",
-//     };
-
-//     // Navigate to confirmation page
-//     navigate("/booking-confirmation", {
-//       state: {
-//         ride: updatedRide,
-//         pickup: ride.pickup || "Your Pickup",
-//         drop: ride.drop || "Your Drop",
-//       },
-//     });
-//   };
-
-//   return (
-//     <div className="booking-page">
-//       <h2>Booking Details</h2>
-
-//       <div className="ride-details">
-//         <h3>{ride.name}</h3>
-//         <p>
-//           <strong>Route:</strong> {ride.route || "Pickup → Drop"} <br />
-//           <strong>Fare:</strong> ₹{ride.fare} <br />
-//           <strong>ETA:</strong> {ride.eta} minutes <br />
-//           <strong>Capacity:</strong> {ride.capacity} persons
-//         </p>
-//       </div>
-
-//       <button className="confirm-btn" onClick={handleConfirm}>
-//         Confirm Booking
-//       </button>
-
-//       <button className="back-btn" onClick={() => navigate(-1)}>
-//         ← Go Back
-//       </button>
-//     </div>
-//   );
-// }
-
-
-// import { useLocation, useNavigate } from "react-router-dom";
-// import "./BookingPage.css";
-
-// export default function BookingPage({ isLoggedIn, onLoginRequest }) {
-//   const location = useLocation();
-//   const navigate = useNavigate();
-
-//   const ride = location.state?.rideData;
-//   const pickup = location.state?.pickup;
-//   const drop = location.state?.drop;
-
-//   // ✅ If user not logged in, trigger login and save ride for later
-//   if (!isLoggedIn) {
-//     onLoginRequest(ride);
-//     return (
-//       <div className="booking-page">
-//         <h2>Please login to book your ride 🚗</h2>
-//         <button onClick={() => navigate("/")}>Go Back</button>
-//       </div>
-//     );
-//   }
-
-//   if (!ride) {
-//     return (
-//       <div className="booking-page">
-//         <h2>No ride selected</h2>
-//         <button onClick={() => navigate("/")}>Go Back</button>
-//       </div>
-//     );
-//   }
-
-//   return (
-//     <div className="booking-page">
-//       <h2>Booking Details</h2>
-
-//       <div className="ride-details">
-//         <h3>{ride.name}</h3>
-//         <p>
-//           <strong>Route:</strong> {pickup} → {drop} <br />
-//           <strong>Fare:</strong> ₹{ride.fare} <br />
-//           <strong>ETA:</strong> {ride.eta} minutes <br />
-//           <strong>Capacity:</strong> {ride.capacity} persons
-//         </p>
-//       </div>
-
-//       {/* ✅ Confirm Booking — navigate to confirmation page */}
-//       <button
-//         className="confirm-btn"
-//         onClick={() =>
-//           navigate("/booking-confirmation", {
-//             state: { rideData: ride, pickup, drop },
-//           })
-//         }
-//       >
-//         Confirm Booking
-//       </button>
-
-//       <button className="back-btn" onClick={() => navigate(-1)}>
-//         ← Go Back
-//       </button>
-//     </div>
-//   );
-// }
-
-
-// import { useLocation, useNavigate } from "react-router-dom";
-// import "./BookingPage.css";
-// const API_BASE = process.env.REACT_APP_API_URL || "http://localhost:5000";
-
-// export default function BookingPage({ isLoggedIn, onLoginRequest }) {
-//   const location = useLocation();
-//   const navigate = useNavigate();
-
-//   const ride = location.state?.rideData;
-//   const pickup = location.state?.pickup || localStorage.getItem('pickup');
-//   const drop = location.state?.drop || localStorage.getItem('drop');
-
-//   // If user not logged in, trigger login and save ride for later
-//   if (!isLoggedIn) {
-//     onLoginRequest(ride);
-//     return (
-//       <div className="booking-page">
-//         <h2>Please login to book your ride 🚗</h2>
-//         <button onClick={() => navigate("/")}>Go Back</button>
-//       </div>
-//     );
-//   }
-
-//   if (!ride) {
-//     return (
-//       <div className="booking-page">
-//         <h2>No ride selected</h2>
-//         <button onClick={() => navigate("/")}>Go Back</button>
-//       </div>
-//     );
-//   }
-
-//   const handleConfirm = async () => {
-//     const token = localStorage.getItem('token');
-//     if (!token) {
-//       alert('Login expired. Please login again.');
-//       onLoginRequest(ride);
-//       return;
-//     }
-
-//     try {
-//       const body = {
-//         rideName: ride.name,
-//         brand: ride.brand,
-//         fare: ride.fare,
-//         eta: ride.eta,
-//         capacity: ride.capacity,
-//         pickup,
-//         drop
-//       };
-
-//       const res = await fetch(`${API_BASE}/api/bookings`, {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//           Authorization: `Bearer ${token}`
-//         },
-//         body: JSON.stringify(body)
-//       });
-
-//       const data = await res.json();
-//       if (!res.ok) {
-//         alert(data.message || 'Booking failed');
-//         return;
-//       }
-
-//       // navigate to confirmation with booking data
-//       navigate('/booking-confirmation', {
-//         state: { rideData: ride, pickup, drop, booking: data.booking }
-//       });
-
-//     } catch (err) {
-//       console.error(err);
-//       alert('Network error while booking');
-//     }
-//   };
-
-//   return (
-//     <div className="booking-page">
-//       <h2>Booking Details</h2>
-
-//       <div className="ride-details">
-//         <h3>{ride.name}</h3>
-//         <p>
-//           <strong>Route:</strong> {pickup} → {drop} <br />
-//           <strong>Fare:</strong> ₹{ride.fare} <br />
-//           <strong>ETA:</strong> {ride.eta} minutes <br />
-//           <strong>Capacity:</strong> {ride.capacity} persons
-//         </p>
-//       </div>
-
-//       <button className="confirm-btn" onClick={handleConfirm}>
-//         Confirm Booking
-//       </button>
-
-//       <button className="back-btn" onClick={() => navigate(-1)}>
-//         ← Go Back
-//       </button>
-//     </div>
-//   );
-// }
-
-
 import { useLocation, useNavigate } from "react-router-dom";
-import "./BookingPage.css";
+import { useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
+import { FaMapMarkerAlt, FaClock, FaRupeeSign } from "react-icons/fa";
 
 export default function BookingPage({ isLoggedIn, onLoginRequest }) {
   const location = useLocation();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const ride = location.state?.rideData;
   const pickup = location.state?.pickup || localStorage.getItem("pickup");
   const drop = location.state?.drop || localStorage.getItem("drop");
 
-  // If user not logged in, trigger login and save ride for later
   if (!isLoggedIn) {
     onLoginRequest(ride);
     return (
-      <div className="booking-page">
-        <h2>Please login to book your ride 🚗</h2>
-        <button onClick={() => navigate("/")}>Go Back</button>
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center p-4">
+        <div className="card text-center max-w-md">
+          <h2 className="text-2xl font-bold mb-4">Please login to book your ride 🚗</h2>
+          <button onClick={() => navigate("/")} className="btn-primary">
+            Go Back
+          </button>
+        </div>
       </div>
     );
   }
 
   if (!ride) {
     return (
-      <div className="booking-page">
-        <h2>No ride selected</h2>
-        <button onClick={() => navigate("/")}>Go Back</button>
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center p-4">
+        <div className="card text-center max-w-md">
+          <h2 className="text-2xl font-bold mb-4">No ride selected</h2>
+          <button onClick={() => navigate("/")} className="btn-primary">
+            Go Back
+          </button>
+        </div>
       </div>
     );
   }
 
   const handleConfirm = async () => {
+    setLoading(true);
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.post(
+      const response = await axios.post(
         "http://localhost:5000/api/bookings",
-        { rideId: ride._id, pickup, drop },
-        { headers: { Authorization: `Bearer ${token}` } }
+        {
+          provider: ride.provider,
+          fare: ride.fare,
+          time: ride.time,
+          pickup,
+          drop,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
 
-      const booking = res.data.booking;
-      // go to confirmation with booking info and ride details
+      toast.success("Booking confirmed! Check your email for confirmation.");
+      
       navigate("/booking-confirmation", {
-        state: { rideData: ride, pickup, drop, booking }
+        state: {
+          rideData: ride,
+          pickup,
+          drop,
+          booking: response.data.booking,
+        },
       });
-    } catch (err) {
-      console.error(err);
-      const msg = err?.response?.data?.message || "Booking failed";
-      alert(msg);
+    } catch (error) {
+      console.error(error);
+      toast.error(error.response?.data?.message || "Booking failed. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="booking-page">
-      <h2>Booking Details</h2>
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 px-4">
+      <div className="max-w-2xl mx-auto">
+        <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-white">
+          Booking Details
+        </h2>
 
-      <div className="ride-details">
-        <h3>{ride.name}</h3>
-        <p>
-          <strong>Route:</strong> {pickup} → {drop} <br />
-          <strong>Fare:</strong> ₹{ride.fare} <br />
-          <strong>ETA:</strong> {ride.eta} minutes <br />
-          <strong>Capacity:</strong> {ride.capacity} persons
-        </p>
+        <div className="card mb-6">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="bg-primary-100 dark:bg-primary-900 rounded-full p-4">
+              <span className="text-3xl">🚕</span>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                {ride.provider}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400">Ride Service</p>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <div className="flex items-center gap-3">
+              <FaMapMarkerAlt className="text-primary-600 dark:text-primary-400" />
+              <div>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Route</p>
+                <p className="font-semibold text-gray-900 dark:text-white">
+                  {pickup} → {drop}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <FaRupeeSign className="text-primary-600 dark:text-primary-400" />
+              <div>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Fare</p>
+                <p className="font-semibold text-gray-900 dark:text-white text-xl">
+                  ₹{ride.fare}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <FaClock className="text-primary-600 dark:text-primary-400" />
+              <div>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Estimated Time</p>
+                <p className="font-semibold text-gray-900 dark:text-white">
+                  {ride.time}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex gap-4">
+          <button
+            onClick={handleConfirm}
+            disabled={loading}
+            className="btn-primary flex-1 py-4 text-lg font-bold disabled:opacity-50"
+          >
+            {loading ? "Confirming..." : "Confirm Booking"}
+          </button>
+          <button
+            onClick={() => navigate(-1)}
+            className="btn-secondary px-6 py-4"
+          >
+            ← Back
+          </button>
+        </div>
       </div>
-
-      <button className="confirm-btn" onClick={handleConfirm}>
-        Confirm Booking
-      </button>
-
-      <button className="back-btn" onClick={() => navigate(-1)}>
-        ← Go Back
-      </button>
     </div>
   );
 }
